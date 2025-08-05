@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "directories": {
-    "test": "test"
+  "test": "test"
   },
   "scripts": {
     "test-all": "vitest --run",
@@ -19,7 +19,8 @@
     "test-9": "vitest --run e9.",
     "test-10": "vitest --run e10.",
     "test-11": "vitest --run e11.",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo no test specified\" && exit 1",
+    "serve": "json-server data/db.json --port 3000"
   },
   "keywords": [],
   "author": "",

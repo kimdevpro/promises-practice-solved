@@ -30,11 +30,7 @@ export function alwaysThrows() {
  */
 
 export function onReject(item) {
-  if ( typeof item === "object" && item.message ) {
-      console.log(item.message);
-  } else {
-    console.log(item);
-  }
+  console.log(item.message || item);
 }
 
 /**
@@ -58,7 +54,7 @@ export function onReject(item) {
  * !!! HINT: It is OK to have a lot of .then() code blocks.
  */
 
-export const promise = Promise.resolve(1) 
+export const promise = Promise.resolve(iterate(1)) 
   .then(iterate)
   .then(iterate)
   .then(iterate)

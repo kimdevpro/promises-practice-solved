@@ -30,8 +30,11 @@ const second = (val) => {
 // });
 
 export const handlePromise = first( )
-  .then ((val) => val)
-  .then ((res) => second(res));
+  .then((res) => second(res))
+  .then((value) => {
+  console.log(`value: ${value}`);
+  return value;
+});
 
 
 // === TEST YOURSELF ===

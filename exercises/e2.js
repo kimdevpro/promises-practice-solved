@@ -39,7 +39,7 @@ export const handlePromise = (promise) => {
   // Your code goes here...
   return promise.then(
     (response) => response,
-    (error) => "Uh Oh"
+    () => "Uh Oh"
   );
 };
 

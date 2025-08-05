@@ -23,10 +23,8 @@ export function parsePromised(json_string) {
   // Your code goes here...
   return new Promise((response, error) => {
     try {
-      const results = JSON.parse(json_string);
-      response(results);
+      response(JSON.parse(json_string));
     } catch (e) {
-      console.log(e.message);
       error(e);
     }
   });
@@ -59,16 +57,9 @@ export function onReject(error) {
 export const handlePromise = (inPromise) => {
   // Your code goes here... 
   return inPromise
-    .then ((response) => response)
-    .catch ((error) => {
-      if ( error && error.message ) {
-        onReject(error);
-      } else {
-        return error;
-      }
-    });
-  }
-
+    .then((response) => response)
+    .catch((error) => (error.message ? onReject(error) : error));
+}
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-7"
 // If the test has all tests passed, switch to the next exercise file

@@ -1,11 +1,5 @@
 export const getFirstResolvedPromise = (promises) => {
-  return new Promise((resolve) => {
-    promises.forEach((promise) => {
-      Promise.resolve(promise)
-        .then(resolve)        
-        .catch(() => {}); 
-    });
-  });
+  return Promise.any(promises);
 };
 
 export const getFirstPromiseOrFail = (promises) => {
@@ -55,10 +49,6 @@ export const fetchAllCharactersByIds = async (ids) => {
   // To solve this you must fetch all characters passed in the array at the same time
   // use the `fetchCharacterById` function above to make this work
   //*  write code to pass test ⬇ ️
-  try {
-      const fetchPromises = ids.map((id) => fetchCharacterById(id));
-      return await Promise.all(fetchPromises);
-  } catch (error) {
-      return [];
-  }
+  const fetchPromises = ids.map((id) => fetchCharacterById(id));
+  return Promise.all(fetchPromises).catch(() => []);
 };

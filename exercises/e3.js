@@ -16,15 +16,10 @@
  */
 export const getPromise = (value) => {
   // Your code goes here...
-  const isNumber = typeof value === "number";
   const isWholeNumber = Number.isInteger(value);
 
-  if (isNumber && isWholeNumber) {
-    return new Promise((resolve) => resolve(value));
-  } else {
-    return 0;
-  }
-};
+  return isWholeNumber ? new Promise((resolve) => resolve(value)) : 0;
+}
 
 /**
  * @task
@@ -37,15 +32,13 @@ export const getPromise = (value) => {
  * * Returns the sum value
  * * if you have solved it successfully, the updateSumValue() function will return the value of 10;
  */
-export const updateSumValue = () => {
-  // Your code goes here...
-  let sum = 2;
-  const result = getPromise("120");
-  sum += result;
-  sum += 8;
-  console.log(`sum: ${sum}`);
-  return sum;
-};
+  export const updateSumValue = () => {
+    let sum = 2;
+    getPromise(120).then((value) => sum += value);
+    sum += 8;
+    console.log(`sum: ${sum}`);
+    return sum;
+}
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-3"

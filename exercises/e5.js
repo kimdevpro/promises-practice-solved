@@ -9,7 +9,6 @@
  */
 
 export const attachTitle = (name) => {
-  // Your code goes here...
   return 'DR. ' + name;
 };
 
